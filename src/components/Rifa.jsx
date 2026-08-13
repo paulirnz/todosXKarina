@@ -1,0 +1,123 @@
+import { useState } from "react";
+
+const ETIQUETAS = {
+  banco: "Banco",
+  tipoCuenta: "Tipo de cuenta",
+  numeroCuenta: "N° de cuenta",
+  rut: "RUT",
+  nombre: "Titular",
+};
+
+export default function Rifa({ rifa, nombre }) {
+  const [copiado, setCopiado] = useState(false);
+
+  if (!rifa || rifa.activa === false) return null;
+
+  const clp = (n) =>
+    typeof n === "number" ? "$" + n.toLocaleString("es-CL") : n;
+
+  const textoTransfer = rifa.transferencia
+    ? Object.entries(rifa.transferencia)
+        .map(([k, v]) => `${ETIQUETAS[k] || k}: ${v}`)
+        .join("\n")
+    : "";
+
+  const copiarTodo = () => {
+    navigator.clipboard?.writeText(textoTransfer).then(() => {
+      setCopiado(true);
+      setTimeout(() => setCopiado(false), 2000);
+    });
+  };
+
+  return (
+    <section className="rifa" id="rifa">
+      <div className="rifa__inner">
+        <span className="eyebrow">Rifa solidaria</span>
+        <h2 className="section-title">{rifa.titulo}</h2>
+        {rifa.bajada && (
+          <p className="lead" style={{ margin: "0 auto 2.5rem" }}>
+            {rifa.bajada}
+          </p>
+        )}
+
+        <div className="rifa__grid">
+          <div className="rifa__card rifa__card--premio">
+            {rifa.imagenPremio && (
+              <img className="rifa__img" src={rifa.imagenPremio} alt={"Premio: " + rifa.premio} loading="lazy" />
+            )}
+            <div className="rifa__premioInfo">
+              <span className="rifa__label">Premio</span>
+              <h3 className="rifa__premio">{rifa.premio}</h3>
+              {rifa.detallePremio && <p className="rifa__detalle">{rifa.detallePremio}</p>}
+              {rifa.creditoInstagram && (
+                <a
+                  className="rifa__credito"
+                  href={"https://instagram.com/" + rifa.creditoInstagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Retablo donado por @{rifa.creditoInstagram} →
+                </a>
+              )}
+            </div>
+          </div>
+
+          <div className="rifa__card rifa__card--accion">
+            <ul className="rifa__datos">
+              <li>
+                <span>Valor por número</span>
+                <strong>{clp(rifa.valorNumero)}</strong>
+              </li>
+              {rifa.fechaSorteo && (
+                <li>
+                  <span>Fecha del sorteo</span>
+                  <strong>{rifa.fechaSorteo}</strong>
+                </li>
+              )}
+            </ul>
+
+            {rifa.linkPago ? (
+              <a className="rifa__btn" href={rifa.linkPago} target="_blank" rel="noopener noreferrer">
+                Comprar mi número
+              </a>
+            ) : (
+              <button className="rifa__btn rifa__btn--off" disabled>
+                Pago disponible pronto
+              </button>
+            )}
+
+            {rifa.notaPago && <p className="rifa__nota">{rifa.notaPago}</p>}
+          </div>
+        </div>
+
+        {rifa.transferencia && (
+          <div className="rifa__transfer">
+            <span className="rifa__label">¿Prefieres transferir? También puedes participar así:</span>
+            <ul className="datos-lista" style={{ marginTop: "14px" }}>
+              {Object.entries(rifa.transferencia).map(([k, v]) => (
+                <li key={k}>
+                  <span className="k">{ETIQUETAS[k] || k}</span>
+                  <span className="v">{v}</span>
+                </li>
+              ))}
+            </ul>
+            <button
+              className={"datos-btn" + (copiado ? " is-copiado" : "")}
+              onClick={copiarTodo}
+            >
+              {copiado ? "✓ Datos copiados" : "Copiar todos los datos"}
+            </button>
+            <p className="rifa__nota">
+              Para solicitar tu número, envía tu comprobante a{" "}
+              {rifa.correoSolicitud && (
+                <a href={"mailto:" + rifa.correoSolicitud}>{rifa.correoSolicitud}</a>
+              )}{" "}
+              o al Instagram <strong>@{rifa.instagram || "todosxkarina"}</strong> indicando tu nombre.
+              ¡Gracias por ayudar a {nombre}!
+            </p>
+          </div>
+        )}
+      </div>
+    </section>
+  );
+}
