@@ -56,7 +56,7 @@ const CONFIG = {
     eyebrow: "Familia",
     titulo: "Su familia",
     parrafos: [
-      "Karina es mamá de dos niñas, de **6 y 8 años**, quienes son su mayor fuerza para seguir adelante. Hoy enfrentan un difícil momento tras su diagnóstico de **colangiocarcinoma con metástasis**.",
+      "Karina es mamá de dos niñas, de **5 y 8 años**, quienes son su mayor fuerza para seguir adelante. Hoy enfrentan un difícil momento tras su diagnóstico de **colangiocarcinoma con metástasis**.",
       "Sus hijas necesitan a su mamá y, por eso, esta lucha es también por ellas. **Cada aporte puede ayudar a Karina a continuar su tratamiento y seguir a su lado.**",
     ],
   },
@@ -76,7 +76,7 @@ const CONFIG = {
       "❤️ Cualquier otro gasto que vaya surgiendo producto de su enfermedad.",
     ],
     cierre: [
-      "Para Karina y su familia, cada aporte significa mucho. **Es una forma de acompañarla en esta lucha y ayudarla a seguir adelante junto a sus dos hijas, de 6 y 8 años.**",
+      "Para Karina y su familia, cada aporte significa mucho. **Es una forma de acompañarla en esta lucha y ayudarla a seguir adelante junto a sus dos hijas, de 5 y 8 años.**",
       "**No importa cuánto puedas aportar: cada ayuda suma.** 🙏❤️",
     ],
   },
@@ -103,9 +103,14 @@ const CONFIG = {
     premio: "Retablo artesanal de casa antigua",
     detallePremio:
       "Una pieza única hecha a mano, con todo el detalle de una casa de campo antigua: horno de barro, parrón, herramientas y más. Sorteo; el ganador se anuncia por Instagram.",
-    imagenPremio: "/premio-retablo.jpg",
+    imagenesPremio: [
+      "/premio/premio-1.jpeg",
+      "/premio/premio-2.jpeg",
+      "/premio/premio-3.jpeg",
+      "/premio/premio-4.jpeg",
+    ],
     creditoInstagram: "retablos_pam",
-    valorNumero: 5000,
+    valorNumero: 3500,
     fechaSorteo: "30 de noviembre de 2026",
     instagram: "todosxkarina",
     correoSolicitud: "todosxkarinareyes@gmail.com",

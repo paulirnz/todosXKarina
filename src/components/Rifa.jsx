@@ -10,8 +10,11 @@ const ETIQUETAS = {
 
 export default function Rifa({ rifa, nombre }) {
   const [copiado, setCopiado] = useState(false);
+  const [fotoActual, setFotoActual] = useState(0);
 
   if (!rifa || rifa.activa === false) return null;
+
+  const fotos = rifa.imagenesPremio || [];
 
   const clp = (n) =>
     typeof n === "number" ? "$" + n.toLocaleString("es-CL") : n;
@@ -29,6 +32,9 @@ export default function Rifa({ rifa, nombre }) {
     });
   };
 
+  const anterior = () => setFotoActual((i) => (i - 1 + fotos.length) % fotos.length);
+  const siguiente = () => setFotoActual((i) => (i + 1) % fotos.length);
+
   return (
     <section className="rifa" id="rifa">
       <div className="rifa__inner">
@@ -42,8 +48,43 @@ export default function Rifa({ rifa, nombre }) {
 
         <div className="rifa__grid">
           <div className="rifa__card rifa__card--premio">
-            {rifa.imagenPremio && (
-              <img className="rifa__img" src={rifa.imagenPremio} alt={"Premio: " + rifa.premio} loading="lazy" />
+            {fotos.length > 0 && (
+              <div className="rifa__carrusel">
+                <img
+                  className="rifa__img"
+                  src={fotos[fotoActual]}
+                  alt={"Premio: " + rifa.premio}
+                  loading="lazy"
+                />
+                {fotos.length > 1 && (
+                  <>
+                    <button
+                      className="rifa__carrusel-flecha rifa__carrusel-flecha--izq"
+                      onClick={anterior}
+                      aria-label="Foto anterior"
+                    >
+                      ‹
+                    </button>
+                    <button
+                      className="rifa__carrusel-flecha rifa__carrusel-flecha--der"
+                      onClick={siguiente}
+                      aria-label="Foto siguiente"
+                    >
+                      ›
+                    </button>
+                    <div className="rifa__carrusel-dots">
+                      {fotos.map((_, i) => (
+                        <button
+                          key={i}
+                          className={"rifa__carrusel-dot" + (i === fotoActual ? " is-activo" : "")}
+                          onClick={() => setFotoActual(i)}
+                          aria-label={"Ver foto " + (i + 1)}
+                        />
+                      ))}
+                    </div>
+                  </>
+                )}
+              </div>
             )}
             <div className="rifa__premioInfo">
               <span className="rifa__label">Premio</span>
@@ -77,8 +118,7 @@ export default function Rifa({ rifa, nombre }) {
             </ul>
 
             <p className="rifa__instrucciones">
-              La rifa se realiza únicamente mediante transferencia bancaria.
-             Copia los datos de la derecha y envía tu comprobante por correo a <a href="mailto:todosxkarinareyes@gmail.com">todosxkarinareyes@gmail.com</a> indicando tu nombre para solicitar tu número.
+              La rifa se realiza únicamente mediante transferencia bancaria. Copia los datos de la derecha y envía tu comprobante por correo a <a href="mailto:todosxkarinareyes@gmail.com">todosxkarinareyes@gmail.com</a> indicando tu nombre para solicitar tu número.
             </p>
 
             {rifa.notaPago && <p className="rifa__nota">{rifa.notaPago}</p>}
