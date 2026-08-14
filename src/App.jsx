@@ -22,7 +22,11 @@ export default function App() {
 
   return (
     <>
-      <Navbar nombre={config.nombre} rifaActiva={config.rifa?.activa} />
+      <Navbar
+        nombre={config.nombre}
+        rifaActiva={config.rifa?.activa}
+        transparenciaActiva={config.mostrarTransparencia}
+      />
       <Hero config={config} />
       {config.mostrarTermometro && (
         <HeartMeter

@@ -1,4 +1,4 @@
-export default function Navbar({ nombre, rifaActiva }) {
+export default function Navbar({ nombre, rifaActiva, transparenciaActiva }) {
   return (
     <nav className="navbar">
       <div className="navbar__inner">
@@ -9,7 +9,7 @@ export default function Navbar({ nombre, rifaActiva }) {
           <a href="#historia">Historia</a>
           <a href="#tratamiento">Tratamiento</a>
           {rifaActiva && <a href="#rifa">Rifa</a>}
-          <a href="#transparencia">Transparencia</a>
+          {transparenciaActiva && <a href="#transparencia">Transparencia</a>}
           <a className="navbar__cta" href="#aportar">
             Aportar
           </a>
