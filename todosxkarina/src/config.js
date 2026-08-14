@@ -78,7 +78,7 @@ const CONFIG = {
 
     // Premio
     premio: "Gift card $200.000 + caja de productos",
-    detallePremio: "Sorteo ante notario. El ganador se anuncia por Instagram.",
+    detallePremio: "Sorteo. El ganador se anuncia por Instagram.",
     imagenPremio:
       "https://placehold.co/800x480/E8546B/ffffff?text=Premio+de+la+rifa",
 

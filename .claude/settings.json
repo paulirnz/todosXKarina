@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir -p public/galeria)",
+      "Bash(mv \"public/WhatsApp Image 2026-08-14 at 00.24.00 \\(1\\).jpeg\" \"public/galeria/foto-1.jpeg\")",
+      "Bash(mv \"public/WhatsApp Image 2026-08-14 at 00.24.00 \\(2\\).jpeg\" \"public/galeria/foto-2.jpeg\")",
+      "Bash(mv \"public/WhatsApp Image 2026-08-14 at 00.24.00.jpeg\" \"public/galeria/foto-3.jpeg\")",
+      "Bash(mv \"public/WhatsApp Image 2026-08-14 at 00.24.01 \\(1\\).jpeg\" \"public/galeria/foto-4.jpeg\")",
+      "Bash(rm src/utils/texto.js)",
+      "Bash(rmdir src/utils)"
+    ]
+  }
+}

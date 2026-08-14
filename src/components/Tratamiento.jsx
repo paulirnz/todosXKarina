@@ -1,22 +1,28 @@
+import { conNegritas } from "../utils/texto";
+
 export default function Tratamiento({ tratamiento }) {
   return (
     <section className="block block--tint" id="tratamiento">
-      <div className="block__grid">
-        <div>
-          <span className="eyebrow">El tratamiento</span>
-          <h2 className="section-title">{tratamiento.titulo}</h2>
-          <div className="block__body">
-            {tratamiento.parrafos.map((p, i) => (
-              <p key={i}>{p}</p>
-            ))}
-          </div>
-        </div>
-        <div className="trat-items">
-          {tratamiento.items.map((it, i) => (
-            <div className="trat-item" key={i}>
-              <h4>{it.titulo}</h4>
-              <p>{it.detalle}</p>
-            </div>
+      <div className="historia">
+        <span className="eyebrow" style={{ textAlign: "center", display: "block" }}>
+          El tratamiento
+        </span>
+        <h2 className="section-title" style={{ textAlign: "center" }}>
+          {tratamiento.titulo}
+        </h2>
+        <div className="historia__body">
+          {tratamiento.parrafos.map((p, i) => (
+            <p key={i}>{conNegritas(p)}</p>
+          ))}
+          {tratamiento.lista?.length > 0 && (
+            <ul className="trat-lista">
+              {tratamiento.lista.map((item, i) => (
+                <li key={i}>{conNegritas(item)}</li>
+              ))}
+            </ul>
+          )}
+          {tratamiento.cierre?.map((p, i) => (
+            <p key={"c" + i}>{conNegritas(p)}</p>
           ))}
         </div>
       </div>

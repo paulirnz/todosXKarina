@@ -76,15 +76,10 @@ export default function Rifa({ rifa, nombre }) {
               )}
             </ul>
 
-            {rifa.linkPago ? (
-              <a className="rifa__btn" href={rifa.linkPago} target="_blank" rel="noopener noreferrer">
-                Comprar mi número
-              </a>
-            ) : (
-              <button className="rifa__btn rifa__btn--off" disabled>
-                Pago disponible pronto
-              </button>
-            )}
+            <p className="rifa__instrucciones">
+              La rifa se realiza únicamente mediante transferencia bancaria.
+             Copia los datos de la derecha y envía tu comprobante por correo a <a href="mailto:todosxkarinareyes@gmail.com">todosxkarinareyes@gmail.com</a> indicando tu nombre para solicitar tu número.
+            </p>
 
             {rifa.notaPago && <p className="rifa__nota">{rifa.notaPago}</p>}
           </div>
@@ -108,12 +103,7 @@ export default function Rifa({ rifa, nombre }) {
               {copiado ? "✓ Datos copiados" : "Copiar todos los datos"}
             </button>
             <p className="rifa__nota">
-              Para solicitar tu número, envía tu comprobante a{" "}
-              {rifa.correoSolicitud && (
-                <a href={"mailto:" + rifa.correoSolicitud}>{rifa.correoSolicitud}</a>
-              )}{" "}
-              o al Instagram <strong>@{rifa.instagram || "todosxkarina"}</strong> indicando tu nombre.
-              ¡Gracias por ayudar a {nombre}!
+              Para solicitar tu número, envía tu comprobante a <a href="mailto:todosxkarinareyes@gmail.com">todosxkarinareyes@gmail.com</a> o al Instagram <strong>@{rifa.instagram || "todosxkarina"}</strong> indicando tu nombre. ¡Gracias por ayudar a {nombre}!
             </p>
           </div>
         )}

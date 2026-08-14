@@ -8,7 +8,7 @@ const CONFIG = {
   nombreCompleto: "Karina Reyes",
   hashtag: "#TodosxKarina",
   instagram: "todosxkarina",
-  fotoPrincipal: "https://placehold.co/640x720/E8546B/ffffff?text=Foto+de+Karina",
+  fotoPrincipal: "/galeria/foto-5.jpeg",
 
   // --- Termómetro (oculto por ahora: aún no se recauda) ---
   mostrarTermometro: false,
@@ -36,17 +36,48 @@ const CONFIG = {
     ],
   },
 
+  // --- Videos destacados (testimonios en Instagram) ---
+  videosDestacados: [
+    {
+      url: "https://www.instagram.com/reel/Db65opVsm2H/",
+      titulo: "Vendiendo artesanías para ayudar a su hija",
+      descripcion:
+        "La mamá de Karina cuenta cómo está vendiendo sus artesanías para juntar plata para el tratamiento.",
+    },
+    {
+      url: "https://www.instagram.com/reel/Db0wT-suj5E/",
+      titulo: "Un nuevo testimonio",
+      descripcion: "",
+    },
+  ],
+
+  // --- Su familia ---
+  familia: {
+    eyebrow: "Familia",
+    titulo: "Su familia",
+    parrafos: [
+      "Karina es mamá de dos niñas, de **6 y 8 años**, quienes son su mayor fuerza para seguir adelante. Hoy enfrentan un difícil momento tras su diagnóstico de **colangiocarcinoma con metástasis**.",
+      "Sus hijas necesitan a su mamá y, por eso, esta lucha es también por ellas. **Cada aporte puede ayudar a Karina a continuar su tratamiento y seguir a su lado.**",
+    ],
+  },
+
   // --- Tratamiento ---
   tratamiento: {
-    titulo: "¿Para qué es tu ayuda?",
+    titulo: "¿Para qué será tu ayuda? ❤️",
     parrafos: [
-      "El tratamiento incluye medicamentos, exámenes y controles que no cubre completamente el sistema de salud.",
-      "Tu aporte se destina íntegramente a costear estas atenciones. Toda la información y los comprobantes están disponibles en la sección de transparencia.",
+      "Hoy Karina necesita de nuestra ayuda para poder enfrentar los altos costos de su tratamiento contra el **colangiocarcinoma con metástasis**.",
+      "Cada aporte será destinado a cubrir parte de los gastos que esta enfermedad implica, como:",
     ],
-    items: [
-      { titulo: "Medicamentos", detalle: "Tratamiento farmacológico." },
-      { titulo: "Exámenes", detalle: "Controles y exámenes médicos." },
-      { titulo: "Otros gastos", detalle: "Gastos asociados a la enfermedad." },
+    lista: [
+      "💊 **Medicamentos y tratamientos** que necesita para seguir luchando.",
+      "🧪 **Exámenes y controles médicos**, como análisis de sangre, escáneres, resonancias, biopsias y otros estudios para saber cómo está avanzando la enfermedad y cómo responde al tratamiento.",
+      "🏥 **Procedimientos y atenciones médicas** que sean necesarios durante este proceso.",
+      "🚕 **Traslados y otros gastos** relacionados con sus controles y tratamientos.",
+      "❤️ Cualquier otro gasto que vaya surgiendo producto de su enfermedad.",
+    ],
+    cierre: [
+      "Para Karina y su familia, cada aporte significa mucho. **Es una forma de acompañarla en esta lucha y ayudarla a seguir adelante junto a sus dos hijas, de 6 y 8 años.**",
+      "**No importa cuánto puedas aportar: cada ayuda suma.** 🙏❤️",
     ],
   },
 
@@ -71,7 +102,7 @@ const CONFIG = {
       "Participa con tu número y ayúdanos a completar el tratamiento. Cada aporte nos acerca a la meta.",
     premio: "Retablo artesanal de casa antigua",
     detallePremio:
-      "Una pieza única hecha a mano, con todo el detalle de una casa de campo antigua: horno de barro, parrón, herramientas y más. Sorteo ante notario; el ganador se anuncia por Instagram.",
+      "Una pieza única hecha a mano, con todo el detalle de una casa de campo antigua: horno de barro, parrón, herramientas y más. Sorteo; el ganador se anuncia por Instagram.",
     imagenPremio: "/premio-retablo.jpg",
     creditoInstagram: "retablos_pam",
     valorNumero: 5000,
@@ -87,7 +118,16 @@ const CONFIG = {
     },
   },
 
-  // --- Transparencia ---
+  // --- Galería de fotos ---
+  galeria: [
+    "/galeria/foto-1.jpeg",
+    "/galeria/foto-2.jpg",
+    "/galeria/foto-3.jpeg",
+    "/galeria/foto-6.jpeg",
+  ],
+
+  // --- Transparencia (oculta por ahora, se sube más adelante) ---
+  mostrarTransparencia: false,
   transparencia: {
     titulo: "Transparencia",
     bajada:
