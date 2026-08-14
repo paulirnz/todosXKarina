@@ -8,7 +8,7 @@ const CONFIG = {
   nombreCompleto: "Karina Reyes",
   hashtag: "#TodosxKarina",
   instagram: "todosxkarina",
-  fotoPrincipal: "/galeria/foto-5.jpeg",
+  fotoPrincipal: "/galeria/foto-portada.jpeg",
 
   // --- Termómetro (oculto por ahora: aún no se recauda) ---
   mostrarTermometro: false,
@@ -128,6 +128,7 @@ const CONFIG = {
     "/galeria/foto-1.jpeg",
     "/galeria/foto-2.jpg",
     "/galeria/foto-3.jpeg",
+    "/galeria/foto-5.jpeg",
     "/galeria/foto-6.jpeg",
   ],
 
